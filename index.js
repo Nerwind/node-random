@@ -3,6 +3,7 @@ class Random {
      * 
      * @param {Number} min 
      * @param {Number} max 
+     * @description Returns a random number between min and max parameters.
      */
     static int(min, max) {
         return !max ? Math.floor(Math.random() * min) : Math.floor(Math.random() * max) + min;
@@ -10,6 +11,7 @@ class Random {
 
     /**
      * @param {Array} list 
+     * @description Return a random element of an array.
      */
 
     static choice(list) {
