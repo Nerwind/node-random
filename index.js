@@ -1,17 +1,23 @@
 class Random {
     /**
-     * 
+     * Returns a random number between min and max parameters.
      * @param {Number} min 
      * @param {Number} max 
-     * @description Returns a random number between min and max parameters.
      */
     static int(min, max) {
-        return !max ? Math.floor(Math.random() * min) : Math.floor(Math.random() * max) + min;
+        let first = Math.floor(Math.random() * !max ? min : max);
+        if (first < min && max) {
+            let c = min - first;
+            first += c;
+            return first;
+        } else {
+            return first;
+        }
     }
 
     /**
+     * Return a random element of an array.
      * @param {Array} list 
-     * @description Return a random element of an array.
      */
 
     static choice(list) {
@@ -19,8 +25,8 @@ class Random {
     }
 
     /**
+     * Returns a shuffled array provided in the function param.
      * @param {Array} list
-     * @description Returns a shuffled array provided in the function param.
      */
 
     static shuffle(list) {

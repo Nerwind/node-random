@@ -1,5 +1,5 @@
 {
-  "name": "random.node.js",
+  "name": "random-node-module",
   "version": "1.0.0",
   "description": "a small random library for node.js",
   "main": "index.js",
