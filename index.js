@@ -17,7 +17,8 @@ class Random {
     }
 
     /**
-     * @param {Array} list 
+     * @param {Array} list
+     * @description Returns a shuffled array provided in the function param.
      */
 
     static shuffle(list) {
