@@ -1,5 +1,5 @@
 This is a simple random module.
-Install it using `npm i node-random`
+Install it using `npm i random-node-module`
 
 code example:
 
