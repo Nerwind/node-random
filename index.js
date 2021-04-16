@@ -5,6 +5,7 @@ class Random {
      * @param {Number} max 
      */
     static int(min, max) {
+        if (!min) return 0;
         if (!max) {
             let rnum = Math.floor(Math.random() * min);
             return rnum;
@@ -43,6 +44,31 @@ class Random {
         }
 
         return ar;
+    }
+
+    /**
+     * Returns a random boolean value.
+     */
+
+    static bool() {
+        return this.int(2) == 1 ? true : false;
+    }
+
+    /**
+     * Returns a randomly generated string from charset.
+     * @param {Number} length
+     * @param {String} charset
+     */
+
+    static string(length, charset) {
+        let retStr = '';
+        if (!charset) return '';
+
+        for (let i = 0; i < length; i++) {
+            retStr += charset[this.int(charset.length)];
+        }
+
+        return retStr;
     }
 }
 
