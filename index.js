@@ -5,13 +5,16 @@ class Random {
      * @param {Number} max 
      */
     static int(min, max) {
-        let first = Math.floor(Math.random() * !max ? min : max);
-        if (first < min && max) {
-            let c = min - first;
-            first += c;
-            return first;
+        if (!max) {
+            let rnum = Math.floor(Math.random() * min);
+            return rnum;
         } else {
-            return first;
+            let rnum = Math.floor(Math.random() * max);
+            if (rnum < min) {
+                let c = min - rnum;
+                rnum += c;
+            }
+            return rnum;
         }
     }
 
