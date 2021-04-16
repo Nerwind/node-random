@@ -5,7 +5,9 @@ class Random {
      * @param {Number} max 
      */
     static int(min, max) {
-        if (!min) return 0;
+        if (!min) {
+            throw new ReferenceError('Minimal output value should be provided.');
+        };
         if (!max) {
             let rnum = Math.floor(Math.random() * min);
             return rnum;
@@ -25,7 +27,10 @@ class Random {
      */
 
     static choice(list) {
-        return !list[0] ? null : list[this.int(list.length)];
+        if (!list[0]) {
+            throw new ReferenceError('A list should be provided.');
+        }
+        return list[this.int(list.length)];
     }
 
     /**
@@ -34,6 +39,9 @@ class Random {
      */
 
     static shuffle(list) {
+        if (!list[0]) {
+            throw new ReferenceError('A list should be provided.');
+        }
         let ar = [],
         b = list.length;
 
@@ -62,13 +70,29 @@ class Random {
 
     static string(length, charset) {
         let retStr = '';
-        if (!charset) return '';
+        if (!charset) {
+            throw new ReferenceError('A charset should be provided.');
+        } else if (!length) {
+            throw new ReferenceError('Length should be provided.');
+        }
 
         for (let i = 0; i < length; i++) {
             retStr += charset[this.int(charset.length)];
         }
 
         return retStr;
+    }
+
+    /**
+     * Returns a random char in a string.
+     * @param {String} string
+     */
+
+    static rCharFromString(string) {
+        if (!string) {
+            throw new ReferenceError('A string should be provided.');
+        }
+        return string[this.int(string.length)];
     }
 }
 
