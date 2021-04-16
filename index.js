@@ -11,7 +11,7 @@ class Random {
         } else {
             let rnum = Math.floor(Math.random() * max);
             if (rnum < min) {
-                let c = min - rnum;
+                let c = (min - rnum) + Math.floor(Math.random() * (max - min));
                 rnum += c;
             }
             return rnum;
