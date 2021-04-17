@@ -6,8 +6,8 @@ class Random {
      */
     int(min, max) {
         if (!min) {
-            throw new ReferenceError('Minimal output value should be provided.');
-        };
+            throw new ReferenceError('Minimal output value must be provided.');
+        }
         if (!max) {
             let rnum = Math.floor(Math.random() * min);
             return rnum;
@@ -27,8 +27,8 @@ class Random {
      */
 
     choice(list) {
-        if (!list[0]) {
-            throw new ReferenceError('A list should be provided.');
+        if (!list[0] || !list) {
+            throw new ReferenceError('A list must be provided.');
         }
         return list[this.int(list.length)];
     }
@@ -40,7 +40,7 @@ class Random {
 
     shuffle(list) {
         if (!list[0]) {
-            throw new ReferenceError('A list should be provided.');
+            throw new ReferenceError('A list must be provided.');
         }
         let ar = [],
         b = list.length;
@@ -71,9 +71,9 @@ class Random {
     string(length, charset) {
         let retStr = '';
         if (!charset) {
-            throw new ReferenceError('A charset should be provided.');
+            throw new ReferenceError('A charset must be provided.');
         } else if (!length) {
-            throw new ReferenceError('Length should be provided.');
+            throw new ReferenceError('Length must be provided.');
         }
 
         for (let i = 0; i < length; i++) {
@@ -90,7 +90,7 @@ class Random {
 
     rCharFromString(string) {
         if (!string) {
-            throw new ReferenceError('A string should be provided.');
+            throw new ReferenceError('A string must be provided.');
         }
         return string[this.int(string.length)];
     }
@@ -104,8 +104,44 @@ class Random {
     }
 
     /**
-     * idk what to add to this class lmao
+     * Returns an array of random numbers.
+     * @param {Number} min
+     * @param {Number} max
+     * @param {Number} length
      */
+
+    intArray(min, max, length) {
+        if (!length) {
+            throw new ReferenceError('Array length must be provided.');
+        }
+
+        let retArr = [];
+        for (let i = 0; i < length; i++) {
+            retArr.push(this.int(min, max));
+        }
+
+        return retArr;
+    }
+
+    /**
+     * Returns an array of randomly generated strings.
+     * @param {Number} length 
+     * @param {String} charset 
+     * @param {Number} arrayLength 
+     */
+
+    stringArray(length, charset, arrayLength) {
+        if (!arrayLength) {
+            throw new ReferenceError('Array length must be provided.');
+        }
+        
+        let retArr = [];
+        for (let i = 0; i < arrayLength; i++) {
+            retArr.push(this.string(length, charset));
+        }
+
+        return retArr;
+    }
 }
 
 module.exports = new Random();
