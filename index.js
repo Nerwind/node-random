@@ -4,7 +4,7 @@ class Random {
      * @param {Number} min 
      * @param {Number} max 
      */
-    static int(min, max) {
+    int(min, max) {
         if (!min) {
             throw new ReferenceError('Minimal output value should be provided.');
         };
@@ -26,7 +26,7 @@ class Random {
      * @param {Array} list 
      */
 
-    static choice(list) {
+    choice(list) {
         if (!list[0]) {
             throw new ReferenceError('A list should be provided.');
         }
@@ -38,7 +38,7 @@ class Random {
      * @param {Array} list
      */
 
-    static shuffle(list) {
+    shuffle(list) {
         if (!list[0]) {
             throw new ReferenceError('A list should be provided.');
         }
@@ -58,7 +58,7 @@ class Random {
      * Returns a random boolean value.
      */
 
-    static bool() {
+    bool() {
         return this.int(2) == 1 ? true : false;
     }
 
@@ -68,7 +68,7 @@ class Random {
      * @param {String} charset
      */
 
-    static string(length, charset) {
+    string(length, charset) {
         let retStr = '';
         if (!charset) {
             throw new ReferenceError('A charset should be provided.');
@@ -88,12 +88,24 @@ class Random {
      * @param {String} string
      */
 
-    static rCharFromString(string) {
+    rCharFromString(string) {
         if (!string) {
             throw new ReferenceError('A string should be provided.');
         }
         return string[this.int(string.length)];
     }
+
+    /**
+     * Returns a random timestamp as Date object.
+     */
+
+    timestamp() {
+        return new Date(this.int(Date.now()));
+    }
+
+    /**
+     * idk what to add to this class lmao
+     */
 }
 
-module.exports = Random;
+module.exports = new Random();
