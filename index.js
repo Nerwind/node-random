@@ -23,14 +23,22 @@ class Random {
 
     /**
      * Return a random element of an array.
-     * @param {Array} list 
+     * @param {Array|String} list
      */
 
     choice(list) {
-        if (!list[0] || !list) {
+        if (!list[0] && list instanceof Array || !list) {
             throw new ReferenceError('A list must be provided.');
         }
-        return list[this.int(list.length)];
+        if (list instanceof Array) {
+            return list[this.int(list.length)];
+        } else {
+            let retArr = [];
+            for (let i of arguments) {
+                retArr.push(i);
+            }
+            return this.choice(retArr);
+        }
     }
 
     /**
@@ -39,19 +47,27 @@ class Random {
      */
 
     shuffle(list) {
-        if (!list[0]) {
+        if (!list[0] && list instanceof Array || !list) {
             throw new ReferenceError('A list must be provided.');
         }
-        let ar = [],
-        b = list.length;
-
-        for (let a = 0; a < b;) {
-            let r = Math.floor(Math.random() * list.length);
-            ar.push(list[r]); list.splice(r, 1);
+        if (list instanceof Array) {
+            let ar = [],
             b = list.length;
-        }
 
-        return ar;
+            for (let a = 0; a < b;) {
+                let r = Math.floor(Math.random() * list.length);
+                ar.push(list[r]); list.splice(r, 1);
+                b = list.length;
+            }
+
+            return ar;
+        } else {
+            let retArr = [];
+            for (let i of arguments) {
+                retArr.push(i);
+            }
+            return this.shuffle(retArr);
+        }
     }
 
     /**
