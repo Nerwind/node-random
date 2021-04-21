@@ -19,5 +19,6 @@
   "bugs": {
     "url": "https://github.com/Nerwind/node-random/issues"
   },
-  "homepage": "https://github.com/Nerwind/node-random#readme"
+  "homepage": "https://github.com/Nerwind/node-random#readme",
+  "types": "index.d.ts"
 }

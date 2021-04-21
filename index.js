@@ -1,6 +1,6 @@
 class Random {
     /**
-     * Returns a random number between min and max parameters.
+     * Returns a random number between min and max parameters
      * @param {Number} min 
      * @param {Number} max 
      */
@@ -22,7 +22,7 @@ class Random {
     }
 
     /**
-     * Return a random element of an array.
+     * Return a random element of an array
      * @param {Array|String} list
      */
 
@@ -42,7 +42,7 @@ class Random {
     }
 
     /**
-     * Returns a shuffled array provided in the function param.
+     * Returns a shuffled array provided in the function param
      * @param {Array} list
      */
 
@@ -71,7 +71,7 @@ class Random {
     }
 
     /**
-     * Returns a random boolean value.
+     * Returns a random boolean value
      */
 
     bool() {
@@ -79,7 +79,7 @@ class Random {
     }
 
     /**
-     * Returns a randomly generated string from charset.
+     * Returns a randomly generated string from charset
      * @param {Number} length
      * @param {String} charset
      */
@@ -100,7 +100,7 @@ class Random {
     }
 
     /**
-     * Returns a random char in a string.
+     * Returns a random char in a string
      * @param {String} string
      */
 
@@ -112,7 +112,7 @@ class Random {
     }
 
     /**
-     * Returns a random timestamp as Date object.
+     * Returns a random timestamp as Date object
      */
 
     timestamp() {
@@ -120,7 +120,7 @@ class Random {
     }
 
     /**
-     * Returns an array of random numbers.
+     * Returns an array of random numbers
      * @param {Number} min
      * @param {Number} max
      * @param {Number} length
@@ -140,7 +140,7 @@ class Random {
     }
 
     /**
-     * Returns an array of randomly generated strings.
+     * Returns an array of randomly generated strings
      * @param {Number} length 
      * @param {String} charset 
      * @param {Number} arrayLength 
